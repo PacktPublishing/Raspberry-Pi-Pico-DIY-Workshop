@@ -16,6 +16,14 @@ latch.value = False
 clock.value = False
 data.value = False
 
+def show_number(x):
+
+    for num in range(3):
+        remainder = int(x % 10)
+        print(remainder)
+        post_number(remainder, False)
+        x /= 10
+
 
 def post_number(number, decimal=False):
     a = 1<<0
@@ -50,23 +58,16 @@ def post_number(number, decimal=False):
         clock.value = True
 
 x = 0
-
+show_number(x)
+latch.value = False
+latch.value = True
 while True:
-    if x == 9:
-        post_number(x, True)
-    else:
-        post_number(x, False)
-
+    show_number(x)
     latch.value = False
     latch.value = True
     time.sleep(0.5)
 
     x += 1
-    x %= 10
+    x %= 1000
 
     print(x)
-
-
-
-
-

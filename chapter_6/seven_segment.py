@@ -4,9 +4,9 @@ import busio
 import time
 from digitalio import DigitalInOut, Direction, Pull
 
-latch = DigitalInOut(board.GP17)
-clock = DigitalInOut(board.GP18)
-data = DigitalInOut(board.GP19)
+latch = DigitalInOut(board.GP22)
+clock = DigitalInOut(board.GP26)
+data = DigitalInOut(board.GP27)
 
 latch.direction = Direction.OUTPUT
 clock.direction = Direction.OUTPUT
@@ -18,12 +18,13 @@ data.value = False
 
 def show_number(x):
 
-    for num in range(3):
+    for num in range(5):
         remainder = int(x % 10)
-        print(remainder)
         post_number(remainder, False)
-        x /= 10
+        x = int(x / 10)
 
+    latch.value = False
+    latch.value = True
 
 def post_number(number, decimal=False):
     a = 1<<0
@@ -57,17 +58,3 @@ def post_number(number, decimal=False):
         data.value = segments & (1 << (7 - i))
         clock.value = True
 
-x = 0
-show_number(x)
-latch.value = False
-latch.value = True
-while True:
-    show_number(x)
-    latch.value = False
-    latch.value = True
-    time.sleep(0.5)
-
-    x += 1
-    x %= 1000
-
-    print(x)

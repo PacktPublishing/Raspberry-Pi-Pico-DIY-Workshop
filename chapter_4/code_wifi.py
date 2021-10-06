@@ -63,7 +63,7 @@ r.close()
 
 print()
 print("Fetching json from", JSON_URL)
-r = requests.get("https://api.thingspeak.com/update?api_key=ZDKVOCBISYB7MIUN&field1=301")
+r = requests.get("https://www.airnowapi.org/aq/forecast/zipCode/?format=application/json&zipCode=94103&date=2021-10-03&distance=25&API_KEY=B572D587-A36B-4E5B-A542-DC825116169E")
 print("-" * 40)
 print(r.json())
 print("-" * 40)

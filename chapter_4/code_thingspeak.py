@@ -10,8 +10,9 @@ import adafruit_requests as requests
 import adafruit_esp32spi.adafruit_esp32spi_socket as socket
 from adafruit_esp32spi import adafruit_esp32spi
 
-i2c = busio.I2C(board.GP9, board.GP8)
+URL = "https://api.thingspeak.com/update?api_key={token}&field1={value}"
 
+i2c = busio.I2C(board.GP9, board.GP8)
 ss = Seesaw(i2c, addr=0x36)
 
 pixel_pin = board.GP0
@@ -56,6 +57,8 @@ while not esp.is_connected:
 print("Connected to", str(esp.ssid, "utf-8"), "\tRSSI:", esp.rssi)
 print("My IP address is", esp.pretty_ip(esp.ip_address))
 
+token = secrets["thingspeak_token"]
+
 while True:
     # read moisture level
     touch = ss.moisture_read()
@@ -65,18 +68,22 @@ while True:
 
     print("temp: " + str(temp) + "  moisture: " + str(touch))
 
-    if touch > 500:
+    if touch < 500:
         pixels.fill((0, 0, 255, 0))
         pixels.show()
         time.sleep(0.250)
         pixels.fill((0, 0, 0, 0))
         pixels.show()
         time.sleep(0.250)
-        print()
-        r = requests.get("https://api.thingspeak.com/update?api_key=ABCDEFGHIJKL&field1=" + str(touch))
-        print("-" * 40)
-        print(r.json())
-        print("-" * 40)
-        r.close()
-        print("Done!")
+
+        try:
+            r = requests.get(URL.format(token=token, value=str(touch)))
+        except:
+            print("Failed to publish value")
+        else:
+            print("-" * 40)
+            print(r.json())
+            print("-" * 40)
+            r.close()
+
     time.sleep(2)

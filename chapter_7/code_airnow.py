@@ -15,10 +15,7 @@ except ImportError:
     print("WiFi secrets are kept in secrets.py, please add them there!")
     raise
 
-print("ESP32 SPI webclient test")
-
-TEXT_URL = "http://wifitest.adafruit.com/testwifi/index.html"
-JSON_URL = "http://api.coindesk.com/v1/bpi/currentprice/USD.json"
+API_URL = "https://www.airnowapi.org/aq/forecast/zipCode/?format=application/json&zipCode={0}&date={1}&distance=25&API_KEY={2}"
 
 
 # If you are using a board with pre-defined ESP32 Pins:
@@ -28,16 +25,10 @@ esp32_reset = DigitalInOut(board.GP11)
 
 spi = busio.SPI(board.GP18, board.GP19, board.GP16)
 esp = adafruit_esp32spi.ESP_SPIcontrol(spi, esp32_cs, esp32_ready, esp32_reset)
-
 requests.set_socket(socket, esp)
 
 if esp.status == adafruit_esp32spi.WL_IDLE_STATUS:
     print("ESP32 found and in idle mode")
-print("Firmware vers.", esp.firmware_version)
-print("MAC addr:", [hex(i) for i in esp.MAC_address])
-
-for ap in esp.scan_networks():
-    print("\t%s\t\tRSSI: %d" % (str(ap["ssid"], "utf-8"), ap["rssi"]))
 
 print("Connecting to AP...")
 while not esp.is_connected:
@@ -47,8 +38,16 @@ while not esp.is_connected:
         print("could not connect to AP, retrying: ", e)
         continue
 
+print("Connected to", str(esp.ssid, "utf-8"), "\tRSSI:", esp.rssi)
+print("My IP address is", esp.pretty_ip(esp.ip_address))
 
-r = requests.get("https://www.airnowapi.org/aq/forecast/zipCode/?format=application/json&zipCode=94103&date=2021-10-03&distance=25&API_KEY=B572D587-A36B-4E5B-A542-DC825116169E")
+zipcode = input("Enter a valid 5-digit zipcode: ")
+date = input("Enter today's date in the following format YYYY-MM-DD: ")
+
+full_url =
+
+try:
+    r = requests.get()
 print("-" * 40)
 print(r.json())
 print("-" * 40)

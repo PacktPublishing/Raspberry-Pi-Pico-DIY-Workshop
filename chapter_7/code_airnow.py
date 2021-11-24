@@ -1,6 +1,3 @@
-# SPDX-FileCopyrightText: 2019 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
-
 import board
 import busio
 from digitalio import DigitalInOut
@@ -16,7 +13,7 @@ except ImportError:
     raise
 
 API_URL = "https://www.airnowapi.org/aq/forecast/zipCode/?format=application/json&zipCode={0}&date={1}&distance=25&API_KEY={2}"
-
+API_KEY = secrets["api_key"]
 
 # If you are using a board with pre-defined ESP32 Pins:
 esp32_cs = DigitalInOut(board.GP7)
@@ -44,13 +41,19 @@ print("My IP address is", esp.pretty_ip(esp.ip_address))
 zipcode = input("Enter a valid 5-digit zipcode: ")
 date = input("Enter today's date in the following format YYYY-MM-DD: ")
 
-full_url =
+full_url = API_URL.format(zipcode, date, API_KEY)
 
 try:
-    r = requests.get()
-print("-" * 40)
-print(r.json())
-print("-" * 40)
-r.close()
+    response = requests.get(full_url)
+except Exception as e:
+    print(e)
+else:
+    data = response.json()[0]
+    print("-" * 40)
+    print("Reporting Area: ", data["ReportingArea"])
+    print("AQI: ", data["AQI"])
+    print("Category: ", data["Category"]["Name"])
+    print("-" * 40)
+    response.close()
 
 print("Done!")

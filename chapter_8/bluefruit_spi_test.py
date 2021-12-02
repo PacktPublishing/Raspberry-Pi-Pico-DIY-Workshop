@@ -22,7 +22,7 @@ bluefruit.command_check_OK(b'AT+FACTORYRESET', delay=1)
 print(str(bluefruit.command_check_OK(b'ATI'), 'utf-8'))
 
 # Change advertised name
-bluefruit.command_check_OK(b'AT+GAPDEVNAME=BlinkaBLE')
+bluefruit.command_check_OK(b'AT+GAPDEVNAME=PicoBLE')
 
 while True:
     print("Waiting for a connection to Bluefruit LE Connect ...")

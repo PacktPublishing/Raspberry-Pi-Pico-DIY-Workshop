@@ -14,13 +14,7 @@ pin.value = False
 time.sleep(5.0)
 pin.value = True
 
-try:
-    while True:
-        print(bytes(data))
-        uart.write(bytes(data))
-        time.sleep(15)
-except KeyboardInterrupt:
-    print("Done")
-
-
-
+uart.write(bytes(data))
+time.sleep(10)
+uart.write(bytes(data))
+print("Done")

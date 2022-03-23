@@ -1794,7 +1794,7 @@ We carry &lt;a href=”https://www.sparkfun.com/products/14204”&gt;200mm&lt;/a
 <errors>
 <approved hash="104,1,63.5,33.02,J2,1,GND,,,"/>
 <approved hash="104,1,63.5,35.56,J2,2,3.3V,,,"/>
-<approved hash="113,1,63.5,115.875,U$1,,,,,"/>
+<approved hash="113,1,63.5,114.402,U1,,,,,"/>
 <approved hash="113,1,59.0127,38.1356,J2,,,,,"/>
 </errors>
 </schematic>

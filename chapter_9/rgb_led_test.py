@@ -1,5 +1,3 @@
-#rotates colours on ZIP LEDs when the button is pressed
-
 from PicoAutonomousRobotics import KitronikPicoRobotBuggy
 from time import sleep
 

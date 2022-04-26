@@ -4,7 +4,7 @@ import board
 import busio
 import sparkfun_qwiickeypad
 
-i2c = busio.I2C(board.GP9, board.GP8)
+i2c = busio.I2C(board.GP17, board.GP16)
 # Create keypad object
 keypad = sparkfun_qwiickeypad.Sparkfun_QwiicKeypad(i2c)
 
@@ -31,4 +31,4 @@ while True:
     if button > 0:
         print("Button '" + chr(button) + "' was pressed.")
     # wait a bit before trying again
-    sleep(0.100
+    sleep(0.100)

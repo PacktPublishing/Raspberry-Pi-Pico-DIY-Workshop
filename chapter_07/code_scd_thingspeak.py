@@ -47,7 +47,7 @@ while True:
         print("CO2: %d PPM" % scd.CO2)
         print("Temperature: %0.2f degrees C" % scd.temperature)
         print("Humidity: %0.2f %% rH" % scd.relative_humidity)
-        full_url = API_URL.format(API_KEY)
+        full_url = API_URL.format(API_KEY, scd.CO2)
 
         try:
             response = requests.get(full_url)

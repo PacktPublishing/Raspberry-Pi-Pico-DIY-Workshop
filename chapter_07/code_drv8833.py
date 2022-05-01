@@ -18,12 +18,15 @@ for coil in coils:
 
 motor = stepper.StepperMotor(coils[0], coils[1], coils[2], coils[3], microsteps=None)
 
-for step in range(STEPS):
-    motor.onestep()
-    time.sleep(DELAY)
+while True:
+    print("Forward Sweep...")
+    for step in range(STEPS):
+        motor.onestep()
+        time.sleep(DELAY)
 
-for step in range(STEPS):
-    motor.onestep(direction=stepper.BACKWARD)
-    time.sleep(DELAY)
+    print("Reverse Sweep...")
+    for step in range(STEPS):
+        motor.onestep(direction=stepper.BACKWARD)
+        time.sleep(DELAY)
 
 motor.release()

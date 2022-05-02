@@ -61,12 +61,4 @@ print(r.text)
 print("-" * 40)
 r.close()
 
-print()
-print("Fetching json from", JSON_URL)
-r = requests.get("https://api.thingspeak.com/update?api_key=ZDKVOCBISYB7MIUN&field1=301")
-print("-" * 40)
-print(r.json())
-print("-" * 40)
-r.close()
-
 print("Done!")

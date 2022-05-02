@@ -2,7 +2,7 @@ import time
 import board
 import analogio
 
-vane = analogio.AnalogIn(board.GP26)
+vane = analogio.AnalogIn(board.A1)
 
 def get_voltage(raw):
     return (raw * 3.3) / 65536

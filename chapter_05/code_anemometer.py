@@ -2,7 +2,7 @@ import time
 import board
 import countio
 
-with countio.Counter(board.GP14) as pin_counter:
+with countio.Counter(board.GP15) as pin_counter:
     last_tick = time.monotonic()
     while True:
         if pin_counter.count and ((time.monotonic() - last_tick) > 1.0):

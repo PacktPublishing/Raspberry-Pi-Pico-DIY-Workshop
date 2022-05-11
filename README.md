@@ -10,12 +10,12 @@ This is the code repository for [Raspberry Pi Pico DIY Workshop](https://www.pac
 The Raspberry Pi Pico, Raspberry Pi family’s latest addition, is a tiny, fast, and low-cost microcontroller development board from the Raspberry Pi foundation that packs enough punch to power an extensive range of applications. Raspberry Pi Pico DIY Workshop will help you get started with your own Pico and leverage its features to develop innovative products. 
 
 This book covers the following exciting features:
-Understand the RP2040's peripherals and apply them in the real world
-Find out about the programming languages that can be used to program the RP2040
-Delve into the applications of serial interfaces available on the Pico
-Discover add-on hardware available for the RP2040
-Explore different development board variants for the Raspberry Pi Pico
-Discover tips and tricks for seamless product development with the Pico
+* Understand the RP2040's peripherals and apply them in the real world
+* Find out about the programming languages that can be used to program the RP2040
+* Delve into the applications of serial interfaces available on the Pico
+* Discover add-on hardware available for the RP2040
+* Explore different development board variants for the Raspberry Pi Pico
+* Discover tips and tricks for seamless product development with the Pico
 
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1801814813) today!
 
@@ -45,6 +45,11 @@ With the following software and hardware list you can run all code files present
 | 1-12 | Arduino IDE (C/C++) | Windows, Mac OS X, and Linux (Any) |
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781801814812_ColorImages.pdf).
+
+## Code in Action
+
+Click on the following link to see the Code in Action:
+https://bit.ly/3OZJb5Z
 
 ### Related products
 * Mastering ROS for Robotics Programming - Third Edition [[Packt]](https://www.packtpub.com/product/mastering-ros-for-robotics-programming-third-edition/9781801071024?utm_source=github&utm_medium=repository&utm_campaign=9781801071024) [[Amazon]](https://www.amazon.com/dp/1801071020)

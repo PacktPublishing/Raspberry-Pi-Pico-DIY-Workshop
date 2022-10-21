@@ -69,3 +69,7 @@ is a mechanical engineer with experience spanning medical device design, CAD/CAM
 * [Python Programming with Raspberry Pi](https://www.packtpub.com/product/python-programming-with-raspberry-pi/9781786467577?utm_source=github&utm_medium=repository&utm_campaign=9781786467577)
 
 * [Getting Started with Python for the Internet of Things](https://www.packtpub.com/product/getting-started-with-python-for-the-internet-of-things/9781838555795?utm_source=github&utm_medium=repository&utm_campaign=9781838555795)
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781801814812">https://packt.link/free-ebook/9781801814812 </a> </p>
